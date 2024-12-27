@@ -1,0 +1,175 @@
+extends layout
+
+block content
+  header.header
+    h4 Where in the world?
+    .dark 
+      img(src="/assets/moon.svg", alt="" ,width='20px' ,height='20px')
+      button#darkModeButton 
+       p Dark Mode
+  body
+    .butt 
+      .buttons
+        .search-button
+          img(src="/assets/search-alt-1-svgrepo-com.svg", alt="" ,width='20px' ,height='20px')
+          input#searchInput(type="text" placeholder="Search for a country ..." ).search-input 
+        .filter-button
+          select#regionFilter.region-filter
+            option(value="") Filter by Region
+            option(value="africa") Africa
+            option(value="americas") Americas
+            option(value="asia") Asia
+            option(value="europe") Europe
+            option(value="oceania") Oceania
+      .container  
+        .list#countryList
+          each country in countries
+            a(href=`/${country.name.toLowerCase()}`)
+              .pro-container(data-region=country.region.toLowerCase())
+                img(src=country.flag alt=`Flag of ${country.name}`)
+                .div1
+                  h3= country.name
+                  p= `Population: ${country.population}`
+                  p= `Region: ${country.region}`
+                  p= `Capital: ${country.capital}`
+    script.
+      document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('searchInput');
+        const countryList = document.getElementById('countryList');
+        const regionFilter = document.getElementById('regionFilter');
+        const darkModeButton = document.getElementById('darkModeButton');
+        const paragraphs = document.querySelectorAll('p');
+        const headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        const body = document.body;
+
+        
+        darkModeButton.addEventListener('click', () => {
+          paragraphs.forEach(paragraph => {
+            paragraph.style.color = paragraph.style.color === 'black' ? 'white' : 'black';
+            paragraph.style.transition = 'filter 0.3s ease-in-out';
+          });
+        });
+
+         darkModeButton.addEventListener('click', () => {
+           headers.forEach(header => {
+             header.style.color = header.style.color === 'black' ? 'white' : 'black';
+             header.style.transition = 'filter 0.3s ease-in-out';
+         });
+        });
+
+        darkModeButton.addEventListener('click', () => {
+          const body = document.body;
+            body.style.backgroundColor = body.style.backgroundColor === 'gainsboro' ? 'hsl(207, 26%, 17%)' : 'gainsboro';
+            body.style.transition = 'filter 0.3s ease-in-out';
+        });
+
+        darkModeButton.addEventListener('click', () => {
+          const header = document.querySelector('header');
+            header.style.backgroundColor = header.style.backgroundColor === 'white' ? 'hsl(209, 23%, 22%)' : 'white';
+            header.style.transition = 'filter 0.3s ease-in-out';
+        });
+
+        darkModeButton.addEventListener('click', () => {
+          const searchButtons = document.querySelectorAll('.search-button');
+            searchButtons.forEach(searchButton => {
+              searchButton.style.backgroundColor = searchButton.style.backgroundColor === 'white' ? 'hsl(209, 23%, 22%)' : 'white';
+              searchButton.style.transition = 'filter 0.3s ease-in-out';
+         });
+        });
+
+        darkModeButton.addEventListener('click', () => {
+          const searchButtonsI = document.querySelectorAll('.search-input');
+            searchButtonsI.forEach(searchButton => {
+              searchButton.style.backgroundColor = searchButton.style.backgroundColor === 'white' ? 'hsl(209, 23%, 22%)' : 'white';
+              searchButton.style.transition = 'filter 0.3s ease-in-out';
+         });
+        });
+
+        darkModeButton.addEventListener('click', () => {
+          const searchButtonImages = document.querySelectorAll('.search-button img');
+            searchButtonImages.forEach(img => {
+              img.style.filter = img.style.filter === 'invert(0)' ? 'invert(1)' : 'invert(0)';
+              img.style.transition = 'filter 0.3s ease-in-out';
+         });
+        });
+
+
+        darkModeButton.addEventListener('click', () => {
+          const proContainers = document.querySelectorAll('.container .pro-container');
+            proContainers.forEach(proContainer => {
+              proContainer.style.backgroundColor = proContainer.style.backgroundColor === 'white' ? 'hsl(209, 23%, 22%)' : 'white';
+              proContainer.style.transition = 'filter 0.3s ease-in-out';
+         });
+        });
+
+        darkModeButton.addEventListener('click', () => {
+          const filterButtons = document.querySelectorAll('.filter-button');
+            filterButtons.forEach(filterButton => {
+              filterButton.style.backgroundColor = filterButton.style.backgroundColor === 'white' ? 'hsl(209, 23%, 22%)' : 'white';
+                filterButton.style.color = filterButton.style.color === 'black' ? 'white' : 'black';
+                filterButton.style.transition = 'filter 0.3s ease-in-out';
+         });
+        });
+
+        darkModeButton.addEventListener('click', () => {
+          const regionFilters = document.querySelectorAll('.region-filter');
+            regionFilters.forEach(regionFilter => {
+              regionFilter.style.backgroundColor = regionFilter.style.backgroundColor === 'white' ? 'hsl(209, 23%, 22%)' : 'white';
+                regionFilter.style.color = regionFilter.style.color === 'black' ? 'white' : 'black';
+                regionFilter.style.transition = 'filter 0.3s ease-in-out';
+         });
+        });
+
+        darkModeButton.addEventListener('click', () => {
+          const headerButtons = document.querySelectorAll('.header button');
+            headerButtons.forEach(headerButton => {
+              headerButton.style.backgroundColor = headerButton.style.backgroundColor === 'white' ? 'hsl(209, 23%, 22%)' : 'white';
+              headerButton.style.transition = 'filter 0.3s ease-in-out';
+         });
+        });
+
+        darkModeButton.addEventListener('click', () => {
+          const darkImages = document.querySelectorAll('.dark img');
+            darkImages.forEach(img => {
+              img.style.filter = img.style.filter === 'invert(0)' ? 'invert(1)' : 'invert(0)';img.style.transition = 'filter 0.3s ease-in-out';
+         });
+        });
+
+
+
+       
+        searchInput.addEventListener('input', () => {
+          filterCountries();
+        });
+
+        
+        regionFilter.addEventListener('change', () => {
+          filterCountries();
+        });
+
+        
+        function filterCountries() {
+            const searchValue = searchInput.value.toLowerCase();
+            const selectedRegion = regionFilter.value;
+
+            const countries = countryList.getElementsByClassName('pro-container');
+            Array.from(countries).forEach((countryContainer) => {
+            const countryName = countryContainer.querySelector('h3').textContent.toLowerCase();
+            const countryRegion = countryContainer.dataset.region;
+
+            const matchesSearch = countryName.includes(searchValue);
+            const matchesRegion = !selectedRegion || countryRegion === selectedRegion;
+
+            const parentLink = countryContainer.parentElement; 
+
+             if (matchesSearch && matchesRegion) {
+               countryContainer.style.display = ''; 
+               parentLink.style.display = ''; 
+             } else {
+                   countryContainer.style.display = 'none'; 
+                   parentLink.style.display = 'none'; 
+              }
+         });
+          }
+
+      });

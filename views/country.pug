@@ -1,0 +1,141 @@
+extends layout
+
+block content
+  header.header
+    h4 Where in the world?
+    .dark 
+      img(src="/assets/moon.svg", alt="" ,width='20px' ,height='20px')
+      button#darkModeButton
+       p Dark Mode
+  body
+  .buttafter 
+    button    
+     img(src="/assets/left-arrow.svg", alt="" ,width='20px' ,height='20px')
+     a(href="/") Back
+    .pro-containerafter
+      img(src=country.flag alt=`Flag of ${country.name}`)
+      .div44
+         .div33
+           h1= country.name
+         .div55
+            .div11
+              p
+                b Native Name:
+                |  #{country.nativeName}
+              p
+                b Population:
+                |  #{country.population}
+              p
+                b Region:
+                |  #{country.region}
+              p
+                b Sub Region:
+                |  #{country.subRegion}
+              p
+                b Capital:
+                |  #{country.capital}
+
+      .div22     
+       p
+        b Top Level Domain: 
+        | #{country.topDomain}
+       p 
+        b Currencies: 
+        | #{country.currency}
+       p 
+        b Languages: 
+        | #{country.language} 
+
+  script.
+      document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('searchInput');
+        const countryList = document.getElementById('countryList');
+        const regionFilter = document.getElementById('regionFilter');
+        const darkModeButton = document.getElementById('darkModeButton');
+        const paragraphs = document.querySelectorAll('p');
+        const headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        const body = document.body;
+
+        
+        darkModeButton.addEventListener('click', () => {
+          paragraphs.forEach(paragraph => {
+            paragraph.style.color = paragraph.style.color === 'black' ? 'white' : 'black';
+            paragraph.style.transition = 'filter 0.3s ease-in-out';
+          });
+        });
+
+
+        darkModeButton.addEventListener('click', () => {
+           headers.forEach(header => {
+             header.style.color = header.style.color === 'black' ? 'white' : 'black';
+             header.style.transition = 'filter 0.3s ease-in-out';
+         });
+        });
+
+        darkModeButton.addEventListener('click', () => {
+          const body = document.body;
+            body.style.backgroundColor = body.style.backgroundColor === 'gainsboro' ? 'hsl(207, 26%, 17%)' : 'gainsboro';
+            body.style.transition = 'filter 0.3s ease-in-out';
+        });
+
+        darkModeButton.addEventListener('click', () => {
+          const header = document.querySelector('header');
+            header.style.backgroundColor = header.style.backgroundColor === 'white' ? 'hsl(209, 23%, 22%)' : 'white';
+            header.style.transition = 'filter 0.3s ease-in-out';
+        });
+
+        darkModeButton.addEventListener('click', () => {
+          const headerButtons = document.querySelectorAll('.header button');
+            headerButtons.forEach(headerButton => {
+              headerButton.style.backgroundColor = headerButton.style.backgroundColor === 'white' ? 'hsl(209, 23%, 22%)' : 'white';
+              headerButton.style.transition = 'filter 0.3s ease-in-out';
+         });
+        });
+
+        darkModeButton.addEventListener('click', () => {
+          const darkImages = document.querySelectorAll('.dark img');
+            darkImages.forEach(img => {
+              img.style.filter = img.style.filter === 'invert(0)' ? 'invert(1)' : 'invert(0)';img.style.transition = 'filter 0.3s ease-in-out';
+         });
+        });
+
+        darkModeButton.addEventListener('click', () => {
+          const buttonAfter = document.querySelectorAll('.buttafter button');
+            buttonAfter.forEach(button => {
+              button.style.transition = 'background-color 0.3s ease-in-out'; 
+              button.style.backgroundColor = button.style.backgroundColor === 'white' ? 'rgb(43, 57, 69)' : 'white  ';
+         });
+        });
+
+        darkModeButton.addEventListener('click', () => {
+          const buttonAfterLinks = document.querySelectorAll('.buttafter button a');
+            buttonAfterLinks.forEach(link => {
+             link.style.transition = 'color 0.3s ease-in-out'; 
+             link.style.color = link.style.color === 'black' ? 'white' : 'black';
+         });
+        });
+
+
+        darkModeButton.addEventListener('click', () => {
+          const buttonAfterImages = document.querySelectorAll('.buttafter button img');
+            buttonAfterImages.forEach(img => {
+              img.style.transition = 'filter 0.3s ease-in-out'; 
+              img.style.filter = img.style.filter === 'invert(0)' ? 'invert(1)' : 'invert(0)';
+         });
+        });
+
+
+
+
+      })
+
+
+           
+
+
+
+
+
+            
+    
+    
