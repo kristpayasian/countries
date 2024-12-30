@@ -10,7 +10,7 @@ body {
         color: black;
 }
 .butt {
-  padding: 0rem 14rem;
+  padding: 0rem 10rem;
 }
 
 .butt .buttons {
@@ -35,7 +35,7 @@ body {
 }
 
 .buttafter {
-  padding: 0rem 14rem;
+  padding: 0rem 10rem;
 }
 
 .buttafter button {
@@ -59,13 +59,40 @@ body {
 }
 .buttafter .pro-containerafter  img {
   width: 40%;
+  height: 327px;
 }
-
+.buttafter .pro-containerafter  .info-container {
+  display: grid;
+  transform: translateX(116px);
+}
+.buttafter .pro-containerafter  .info-container .div22 {
+  grid-column: 2;
+  grid-row: 1;
+}
+.buttafter .pro-containerafter  .info-container .div44 {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+}
+.buttafter .pro-containerafter  .info-container .div66 {
+  display: flex;
+  align-items: center;
+  grid-column: 1/span 2;
+}
+.buttafter .pro-containerafter  .info-container .div66 .borders {
+  display: flex;
+  gap: 10px;
+}
+.buttafter .pro-containerafter  .info-container .div66 .borders p {
+  padding: 1rem 0.5rem;
+  background-color: hsl(209, 23%, 22%) ;
+  border-radius: 7px;
+}
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 14rem;
+  padding: 1rem 10rem;
   background-color: hsl(209, 23%, 22%);
   color: white;
 }
@@ -174,6 +201,10 @@ body {
 
 }
 
+.container .list a {
+  text-decoration: none;
+}
+
 .container .button1 {
   
     background-color: hsl(209, 23%, 22%);
@@ -232,7 +263,8 @@ body {
         height: 95%;
         display: flex;
         color: white;
-        justify-content: space-between;
+        
+        width: 107%;
         
 }
 .buttafter .pro-containerafter .div11 {
@@ -242,7 +274,7 @@ body {
 .buttafter .pro-containerafter .div22 {
   padding-bottom: 0rem;
   box-sizing: border-box;
-  transform: translateY(80px);
+  transform: translate(150px,64px);
 }
 .buttafter .pro-containerafter .div33 {
  display: flex;
@@ -311,7 +343,7 @@ body {
      font-size:30px
   }
   .buttafter .pro-containerafter  img {
-    width: 100%;
+    width: 94%;
   }
   
   .header {
@@ -476,21 +508,44 @@ body {
     padding-bottom: 0rem;
     box-sizing: border-box;
   }
-  .buttafter .pro-containerafter .div22 {
+  .buttafter .pro-containerafter .info-container {
+    display: flex;
+    flex-direction: column;
+    transform: translateX(10px);
+
+  }
+  .buttafter .pro-containerafter .info-container .div22 {
+    grid-column: 1;
+    grid-row: 1;
     padding-bottom: 0rem;
     box-sizing: border-box;
     transform: translateY(10px);
   }
 
-  .buttafter .pro-containerafter .div22 p {
+  .buttafter .pro-containerafter .info-container .div22 p {
     font-size: 35px;
   }
   .buttafter .pro-containerafter .div33 {
    display: flex;
    width: 100%;
   }
-  .buttafter .pro-containerafter .div44 {
-    width: 100%;
+
+  .buttafter .pro-containerafter .info-container .div44 {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;  
+    
+   }
+   .buttafter .pro-containerafter .info-container .div66 {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;  
+    font-size: 44px;
+    display: flow;
+   }
+
+   .buttafter .pro-containerafter .info-container .div44 h1 {
+      font-size: 70px;
    }
    .buttafter .pro-containerafter .div11 p {
     font-size: 35px;

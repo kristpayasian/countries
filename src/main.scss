@@ -81,6 +81,8 @@ body {
             }
     
             .div22 {
+                grid-column: 2;
+                grid-row: 1;
                 padding-bottom: 0rem;
                 box-sizing: border-box;
                 transform: translateY(80px);
@@ -91,7 +93,30 @@ body {
                 width: 100%;
             }
             .div44 {
+                grid-column: 1;
+                grid-row: 1;
                 width: 24%;
+            }
+
+            .info-container {
+                display: grid;
+
+                .div66 {
+                    display: flex;
+    
+                    .borders {
+                        display: flex;
+
+                        p{
+                            padding: 0rem 0.5rem;
+                            background-color: hsl(209, 23%, 22%) ;
+                            ;
+                            padding: 0rem 0.5rem;
+                            text-align: center;
+                        }
+    
+                    }
+                }
             }
         }
 
@@ -213,6 +238,10 @@ body {
         gap: 80px;
         width: 100%;
         transform: translateX(-3px);
+
+        a {
+            text-decoration: none;
+        }
 
     // a {
     //     max-width: 310px;
@@ -363,6 +392,10 @@ body {
                 }
                 .div44 {
                     width: 100%;
+                    
+                    h1 {
+                        font-size: 30px;
+                    }
                 }
             }
     

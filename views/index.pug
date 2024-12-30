@@ -26,7 +26,7 @@ block content
           each country in countries
             a(href=`/${country.name.toLowerCase()}`)
               .pro-container(data-region=country.region.toLowerCase())
-                img(src=country.flag alt=`Flag of ${country.name}`)
+                img(src=country.flags.svg alt=`Flag of ${country.name}`)
                 .div1
                   h3= country.name
                   p= `Population: ${country.population}`

@@ -71,6 +71,8 @@ body.dark-mode {
   box-sizing: border-box;
 }
 .buttafter .pro-containerafter .div22 {
+  grid-column: 2;
+  grid-row: 1;
   padding-bottom: 0rem;
   box-sizing: border-box;
   transform: translateY(80px);
@@ -80,7 +82,24 @@ body.dark-mode {
   width: 100%;
 }
 .buttafter .pro-containerafter .div44 {
+  grid-column: 1;
+  grid-row: 1;
   width: 24%;
+}
+.buttafter .pro-containerafter .info-container {
+  display: grid;
+}
+.buttafter .pro-containerafter .info-container .div66 {
+  display: flex;
+}
+.buttafter .pro-containerafter .info-container .div66 .borders {
+  display: flex;
+}
+.buttafter .pro-containerafter .info-container .div66 .borders p {
+  padding: 0rem 0.5rem;
+  background-color: hsl(209, 23%, 22%);
+  padding: 0rem 0.5rem;
+  text-align: center;
 }
 
 .header {
@@ -182,6 +201,9 @@ body.dark-mode {
   gap: 80px;
   width: 100%;
   transform: translateX(-3px);
+}
+.container .list a {
+  text-decoration: none;
 }
 .container .button1 {
   background-color: hsl(209, 23%, 22%);
@@ -304,6 +326,9 @@ body.dark-mode {
   }
   .buttafter .pro-containerafter .div44 {
     width: 100%;
+  }
+  .buttafter .pro-containerafter .div44 h1 {
+    font-size: 30px;
   }
   .header {
     display: flex;

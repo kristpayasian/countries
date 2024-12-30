@@ -13,38 +13,52 @@ block content
      img(src="/assets/left-arrow.svg", alt="" ,width='20px' ,height='20px')
      a(href="/") Back
     .pro-containerafter
-      img(src=country.flag alt=`Flag of ${country.name}`)
-      .div44
-         .div33
-           h1= country.name
-         .div55
-            .div11
-              p
-                b Native Name:
-                |  #{country.nativeName}
-              p
-                b Population:
-                |  #{country.population}
-              p
-                b Region:
-                |  #{country.region}
-              p
-                b Sub Region:
-                |  #{country.subRegion}
-              p
-                b Capital:
-                |  #{country.capital}
+      img(src=country.flags.svg alt=`Flag of ${country.name}`)
+      .info-container 
+        .div44
+            h1= country.name
+            .div55
+                .div11
+                    p
+                        b Native Name:
+                        |  #{country.nativeName}
+                    p
+                        b Population:
+                        |  #{country.population}
+                    p
+                        b Region:
+                        |  #{country.region}
+                    p
+                        b Sub Region:
+                        |  #{country.subregion}
+                    p
+                        b Capital:
+                        |  #{country.capital}
+        
+        .div22     
+            p
+                b Top Level Domain: 
+                | #{country.topLevelDomain}
+            p 
+                if(country.currencies)
+                    b Currencies: 
+                    each currency in country.currencies
+                        | #{currency.name}
+            p 
+                if(country.languages)
+                    b Languages: 
+                    each language in country.languages
+                        | #{language.name}, 
 
-      .div22     
-       p
-        b Top Level Domain: 
-        | #{country.topDomain}
-       p 
-        b Currencies: 
-        | #{country.currency}
-       p 
-        b Languages: 
-        | #{country.language} 
+
+        .div66 
+          p 
+            b Border Countries: 
+          .borders
+            if(country.borders)
+                each border in country.borders
+                    p #{border}
+
 
   script.
       document.addEventListener('DOMContentLoaded', () => {
@@ -123,6 +137,17 @@ block content
               img.style.filter = img.style.filter === 'invert(0)' ? 'invert(1)' : 'invert(0)';
          });
         });
+
+
+        darkModeButton.addEventListener('click', () => {
+          const paragraphs = document.querySelectorAll('.buttafter .pro-containerafter .info-container .div66 .borders p');
+            paragraphs.forEach(paragraph => {
+               paragraph.style.transition = 'color 0.3s ease-in-out'; 
+               paragraph.style.backgroundColor = paragraph.style.backgroundColor === 'white' ? 'rgb(43, 57, 69)' : 'white  '; 
+        });
+       });
+
+
 
 
 
